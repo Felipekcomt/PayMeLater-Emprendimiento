@@ -1,0 +1,32 @@
+
+
+
+.example-radio-button {
+  margin: 5px;
+}
+.container{
+  display: inline-block;
+  margin: 2%;
+}
+.main-div{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-left: 20%;
+}
+.mat-card{
+  height: 300px;
+  width: 300px;
+  background: whitesmoke;
+  text-align:center;
+}
+.example-radio-group {
+  display: inline-block;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.button-footer{
+  margin: 2%;
+}

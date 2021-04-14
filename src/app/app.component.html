@@ -1,0 +1,38 @@
+<div class="div-main">
+  <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar style="background-color: #231e1e"   class="example-toolbar">
+      <img class = "logo"  src="assets/Frame_3.png" style="width: 300px; height: 80px">
+      <div style="margin-left: 60%">
+        <button class="publicar-button" mat-raised-button color="primary"  style="margin-left: 15%; background-color: #ffffff; color: #231e1e; width: 150px; height: 50px ; font-size: 20px;" *ngIf="visible === false || visible === null" (click)="login()">
+          <span class="material-icons" style="margin-left: -10%;">
+          login
+          </span> Loguearse</button>
+      </div>
+      <div style="margin-left: 3%">
+        <button class="publicar-button" mat-raised-button color="primary"  style="margin-left: 15%; background-color: #ffffff; color: #231e1e; width: 150px; height: 50px ; font-size: 20px;" *ngIf="visible === false || visible === null" (click)="Register()">
+          <span class="material-icons" style="margin-left: -10%;">
+          library_books
+          </span> Registro</button>
+      </div>
+      <div style="margin-left: 5%">
+      <button class="publicar-button" mat-raised-button color="primary"  style="margin: 4%; background-color: #ffffff; color: #231e1e; width: 200px; height: 60px ; font-size: 20px;" *ngIf="visible === true" (click)="logOut()"><span class="material-icons">
+        meeting_room
+        </span> Cerrar Sesión</button>
+      </div>
+    </mat-toolbar>
+    <mat-sidenav-container class="example-sidenav-container" 
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav mode="side" opened *ngIf="visible=== true"
+                   [fixedInViewport]="mobileQuery.matches" style="width: 270px;">
+        <mat-nav-list style="background-color: #FFD7CB;height: 99%; width: 100%;">
+          <a style="align-items: center; color: #231e1e; font-size: 25px; margin-bottom: 5%;" mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav">
+            <mat-icon style="color: #231e1e; font-size: 25px;margin-right: 3%;">{{nav.icon}}</mat-icon>{{nav.name}}</a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content class="mat-sidenav">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  <div *ngIf="!shouldRun"></div>
+</div>

@@ -1,0 +1,40 @@
+<div class="main-div">
+  <mat-card class="mat-card" style="margin-right: 60%; width: 600px;height: 400;">
+    <mat-card-title  style="margin-top: 3%;">REGISTRARSE</mat-card-title>
+    <form [formGroup]="form">
+      <div class="container" style="margin-top: 10%">
+        <mat-form-field>
+          <input matInput placeholder="Ingrese su emial" formControlName="email">
+        </mat-form-field>
+        <div class ="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div class="container-error-message" *ngIf="email.errors.required">
+            Email es requerido
+          </div>
+          <div class="container-error-message" *ngIf="email.errors.email">
+            Formato de email incorrecto
+          </div>
+        </div>
+      </div>
+      <div class="container" style="margin-top: 10%">
+        <mat-form-field>
+          <input matInput type="password" placeholder="Ingrese su password" formControlName="password">
+        </mat-form-field>
+        <div class ="alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+          <div class="container-error-message" *ngIf="password.errors.required">
+            Contraseña valida requerida
+          </div>
+          <div class="container-error-message" *ngIf="password.errors.minlength">
+            Se necesita minimo 5 caracteres
+          </div>
+          <div class="container-error-message" *ngIf="password.errors.maxlength">
+            Maximo 16 caracteres
+          </div>
+        </div>
+      </div>
+    </form>
+    <mat-card-footer>
+      <button mat-raised-button class="button-footer" color="primary" style="background-color: #231e1e" (click)="Confirmation()">Registrar</button>
+      <button mat-raised-button class="button-footer" color="primary" style="background-color: #231e1e" >Cancelar</button>
+    </mat-card-footer>
+  </mat-card>
+</div>

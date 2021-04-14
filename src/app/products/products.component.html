@@ -1,0 +1,44 @@
+
+<div class="main">
+  <mat-grid-list cols="2">
+    <mat-grid-tile>
+  <mat-card class="main-card" class="scrollable-content" [style.overflow]="'auto'" [style.height.px]="'600'" [style.width.px]="'700'">
+            <mat-card style="width: auto; height: auto">
+              <mat-card-content style="font-weight: 700; font-size: 20px;">Credito Disponible: {{customer?.wallet}} Soles</mat-card-content>
+              <mat-card-content>Monto total: {{saldo.toFixed(2)}} Soles</mat-card-content>
+            </mat-card>
+            <mat-card class="cards" *ngFor="let product of products" >
+              <img style="height: 120px; width: 120px" [src]="product.url">
+              <mat-card-subtitle>Precio: {{product.price.toFixed(2)}} Soles</mat-card-subtitle>
+              <mat-card-title style="display: inline-block">{{product.name}}</mat-card-title>
+              <mat-card-footer> <button class="publicar-button" mat-raised-button color="primary" (click)="buy(product.id)" style="margin: 3%; background-color: #231e1e">Comprar</button></mat-card-footer>
+            </mat-card>
+  </mat-card>
+    <button class="publicar-button" mat-raised-button color="primary" style="margin-top: -70%;margin-left: -20%; background-color: #231e1e" (click)="goToBack()">Regresar</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+  <mat-card>
+              <mat-card-title>Lista de Compras:</mat-card-title>
+              <mat-card-content class="scrollable-content" [style.overflow]="'auto'" [style.height.px]="'300'">
+                    <mat-list>
+                      <mat-list-item class="list" *ngFor="let buyProduct of buyProducts">{{buyProduct.name}}<mat-icon (click)="cancel(buyProduct.name ,buyProduct.id)" aria-hidden="false" aria-label="Example home icon" style="margin-left: 10%" >clear</mat-icon></mat-list-item>
+                    </mat-list>
+              </mat-card-content>
+              <mat-card-footer>
+                <mat-card-title>Delivery</mat-card-title>
+                <form [formGroup]="form">
+                  <p>
+                    <input type="radio" value="SI" formControlName="tempDelivery"> Si
+                    <input type="radio" value="NO" formControlName="tempDelivery"> No
+                  </p>
+                  <div class="container-error-message" *ngIf="form.get('tempDelivery').invalid">
+                    Elegir opción
+                  </div>
+                </form>
+                <button class="publicar-button" mat-raised-button color="primary" style="margin: 5%; background-color: #231e1e" (click)="Comprar()">Comprar</button>
+              </mat-card-footer>
+  </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+

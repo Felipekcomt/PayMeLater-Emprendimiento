@@ -1,0 +1,9 @@
+.mat-card-customer{
+  height: auto;
+  width: 1000px;
+  margin: 5%;
+  display: inline-block;
+}
+.div-details{
+  text-align: center;
+}
