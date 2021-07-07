@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl = 'http://paymelater.azurewebsites.net/api/users';
+  baseUrl = 'https://paymelater.azurewebsites.net/api/users';
   constructor(private http: HttpClient) {
   }
   getUser(): any{
