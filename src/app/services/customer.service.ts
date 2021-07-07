@@ -5,12 +5,10 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class CustomerService {
-  baseUrl = 'http://localhost:3000/customer';
+  baseUrl = 'http://paymelater.azurewebsites.net/api/customers';
   constructor(private http: HttpClient) {
   }
-  getCustomer(): any{
-    return this.http.get(this.baseUrl);
-  }
+
   getCustomerById(id): any{
     return this.http.get(`${this.baseUrl}/${id}`);
   }
@@ -22,12 +20,6 @@ export class CustomerService {
   }
   deleteCustomerById(id): any{
     return this.http.delete(`${this.baseUrl}/${id}`);
-  }
-  createMovimientos(movimientos: any): any{
-    return this.http.post(this.baseUrl, movimientos);
-  }
-  getMovimientos(): any{
-    return this.http.get(this.baseUrl);
   }
 
 }

@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   status = false;
   ngOnInit(): void {
     this.userService.getUser().subscribe(users => {
-      this.users = users; });
+      this.users = users;
+    console.log(this.users)});
     this.form = new FormGroup({email: new FormControl('', [Validators.required]), password: new FormControl('', [Validators.required]) } );
   }
   ngOnDestroy(): void {
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   Validation(): void{
     if ( this.form.valid)
     {
-          for (let i = 0; i < (this.users).length; i++)
+          for (let i = 0; i < (this.users)?.length; i++)
           {
             if (this.users[i].email === this.form.value.email && this.users[i].password === this.form.value.password)
             {

@@ -41,7 +41,6 @@ export class ProductsComponent implements OnInit {
     this.productService.getProduct().subscribe(products => {this.products = products;
                                                             console.log(this.products); }
     );
-    this.fechaService.getFechaById(1).subscribe(fecha => this.fecha = fecha);
   }
   buy(id: any): any {
     this.saldo = this.saldo + this.products[id - 1].price;

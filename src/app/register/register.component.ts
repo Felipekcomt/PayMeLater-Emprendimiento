@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     window.location.reload();
   }
   Confirmation(): any{
-    for (let i = 0; i < this.users.length; i++)
+    for (let i = 0; i < this.users?.length; i++)
     {
       if (this.users[i].email === this.form.value.email && this.users[i].password === this.form.value.password) {
           this.status = false;

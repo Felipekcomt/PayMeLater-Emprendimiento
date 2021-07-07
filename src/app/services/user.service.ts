@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl = 'http://localhost:3000/user';
+  baseUrl = 'http://paymelater.azurewebsites.net/api/users';
   constructor(private http: HttpClient) {
   }
   getUser(): any{
@@ -18,12 +18,12 @@ export class UserService {
     return this.http.put(`${this.baseUrl}/${id}`, user );
   }
   createUser(user: any): any {
-    return this.http.post(this.baseUrl, user);
+    return this.http.post('http://paymelater.azurewebsites.net/api', user);
   }
   deleteUserById(id): any{
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
   getUserByCustomerId(id): any {
-    return this.http.get(`${this.baseUrl}/${id}/customer`);
+    return this.http.get(`${this.baseUrl}/${id}/customers`);
   }
 }

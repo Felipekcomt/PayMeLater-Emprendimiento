@@ -19,9 +19,10 @@ export class AddCustomerComponent implements OnInit, OnDestroy {
   customer = {name: '', lastname: '', dni: 0 , celular: 0, wallet: 0, cuotas: 0, topay: 0,
     stock: 0, tasa: '', rate: 0, initialdate: new Date(), endingdate: new Date(), movimientos: [], userId: 0};
   ngOnInit(): void {
-    this.form = new FormGroup({name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.pattern(/^[A-Za-z]/)]), lastname: new FormControl('', [Validators.required, Validators.minLength(3), , Validators.pattern(/^[A-Za-z]/)]),
-
-    dni: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern(/^[0-9]\d{0,10}$/)]), celular: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(/^[0-9]\d{0,10}$/)]),
+    this.form = new FormGroup({name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.pattern(/^[A-Za-z]/)]),
+      lastname: new FormControl('', [Validators.required, Validators.minLength(3), , Validators.pattern(/^[A-Za-z]/)]),
+    dni: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern(/^[0-9]\d{0,10}$/)]),
+      celular: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(/^[0-9]\d{0,10}$/)]),
     rate: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]\d{0,10}$/)])});
     this.userService.getUser().subscribe(users => {
       this.users = users; } );
@@ -30,7 +31,7 @@ export class AddCustomerComponent implements OnInit, OnDestroy {
     window.location.reload();
   }
   createCustomer(): any{
-    for (let i = 0; i < (this.users).length; i++)
+    for (let i = 0; i < (this.users)?.length; i++)
     {
       if (this.users[i].islogged === true)
       {
@@ -48,7 +49,7 @@ export class AddCustomerComponent implements OnInit, OnDestroy {
     this.customer.initialdate = null;
     this.customer.endingdate = null;
     this.customer.movimientos = [];
-    this.customerService.createCustomer(this.customer).subscribe(() => {});
+    this.customerService.createCustomer(this.customer).subscribe(() => {console.log(this.customer)});
     this.router.navigate(['/customer']);
   }
   Validation(): any {
