@@ -1,3 +1,14 @@
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M2X83756E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8M2X83756E');
+  </script>
+</head>
 <div class="div-main">
   <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
     <mat-toolbar style="background-color: #231e1e"   class="example-toolbar">
@@ -20,7 +31,7 @@
         </span> Cerrar Sesión</button>
       </div>
     </mat-toolbar>
-    <mat-sidenav-container class="example-sidenav-container" 
+    <mat-sidenav-container class="example-sidenav-container"
                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
       <mat-sidenav mode="side" opened *ngIf="visible=== true"
                    [fixedInViewport]="mobileQuery.matches" style="width: 270px;">
