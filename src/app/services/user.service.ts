@@ -18,7 +18,7 @@ export class UserService {
     return this.http.put(`${this.baseUrl}/${id}`, user );
   }
   createUser(user: any): any {
-    return this.http.post('http://paymelater.azurewebsites.net/api', user);
+    return this.http.post(this.baseUrl, user);
   }
   deleteUserById(id): any{
     return this.http.delete(`${this.baseUrl}/${id}`);
